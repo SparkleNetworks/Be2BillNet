@@ -256,3 +256,19 @@ table.nice td.error {
 table.nice td.ok {
   background: #9cff73;
 }
+pre.dotconfig {
+  background: #1E1E1E;
+  color: #C8C8C8;
+}
+pre.dotconfig .element {
+  color: #808080;
+}
+pre.dotconfig .element .name {
+  color: #569CD6;
+}
+pre.dotconfig .element .attr {
+  color: #92CAF4;
+}
+pre.dotconfig .element .val {
+  color: #C8C8C8;
+}

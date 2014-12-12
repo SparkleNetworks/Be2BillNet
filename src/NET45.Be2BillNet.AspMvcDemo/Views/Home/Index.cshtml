@@ -11,12 +11,18 @@
 
     <h2>Configure this app => @(this.ViewBag.IsConfigured ? "OK" : "TODO")</h2>
     <p>Check your web.config. </p>
-    <pre>  &lt;appSettings&gt;
-    <span class="@(string.IsNullOrEmpty(configuration.ApiIdentifier) ? "error" : "ok")">&lt;add key="Be2Bill.ApiIdentifier"    value="@configuration.ApiIdentifier" /&gt;</span>
-    <span class="@(string.IsNullOrEmpty(configuration.ApiKey) ? "error" : "ok")">&lt;add key="Be2Bill.ApiKey"           value="@(new string(configuration.ApiKey.Select(c => '•').ToArray()))" /&gt;</span>
-    <span class="@(string.IsNullOrEmpty(configuration.PaymentSubmitUrl) ? "error" : "ok")">&lt;add key="Be2Bill.PaymentSubmitUrl" value="@configuration.PaymentSubmitUrl" /&gt;</span>
-    <span class="@(string.IsNullOrEmpty(configuration.RestUrl) ? "error" : "ok")">&lt;add key="Be2Bill.RestUrl"          value="@configuration.RestUrl" /&gt;</span>
-  &lt;/appSettings&gt;</pre>
+    <pre class="dotconfig"><span class="element">&lt;<span class="name">configuration</span>&gt;</span>
+  ...
+  <span class="element">&lt;<span class="name">appSettings</span>&gt;</span>
+    ...
+    <span class="element">&lt;<span class="name">add</span> <span class="attr">key</span>="<span class="val">Be2Bill.ApiIdentifier</span>"    <span class="@(string.IsNullOrEmpty(configuration.ApiIdentifier) ? "error" : "ok")">value="@configuration.ApiIdentifier"</span> /&gt;</span>
+    <span class="element">&lt;<span class="name">add</span> <span class="attr">key</span>="<span class="val">Be2Bill.ApiKey</span>"           <span class="@(string.IsNullOrEmpty(configuration.ApiKey) ? "error" : "ok")">value="@(new string(configuration.ApiKey.Select(c => '•').ToArray()))"</span> /&gt;</span>
+    <span class="element">&lt;<span class="name">add</span> <span class="attr">key</span>="<span class="val">Be2Bill.PaymentSubmitUrl</span>" <span class="@(string.IsNullOrEmpty(configuration.PaymentSubmitUrl) ? "error" : "ok")">value="@configuration.PaymentSubmitUrl"</span> /&gt;</span>
+    <span class="element">&lt;<span class="name">add</span> <span class="attr">key</span>="<span class="val">Be2Bill.RestUrl</span>"          <span class="@(string.IsNullOrEmpty(configuration.RestUrl) ? "error" : "ok")">value="@configuration.RestUrl"</span> /&gt;</span>
+    ...
+  <span class="element">&lt;/<span class="name">appSettings</span>&gt;</span>
+  ...
+<span class="element">&lt;/<span class="name">configuration</span>&gt;</span></pre>
     <p>Don't worry, you are not forced to use a config file. Check the sources ;)</p>
 
     <h2>Configure Be2Bill callback url</h2>
