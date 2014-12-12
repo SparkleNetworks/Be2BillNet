@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+    var configuration = (Be2BillNet.Be2BillConfiguration)this.ViewBag.Configuration;
+}
+
+<section class="content">
+    <h1>Hi</h1>
+    <p><a href="https://www.be2bill.com/">Be2Bill</a> is a french online payment provider. </p>
+    <p>This non-official library will allow you to execute B2B payments with .NET languages (C#, VB.NET...)</p>
+
+    <h2>Configure this app => @(this.ViewBag.IsConfigured ? "OK" : "TODO")</h2>
+    <p>Check your web.config. </p>
+    <pre>  &lt;appSettings&gt;
+    <span class="@(string.IsNullOrEmpty(configuration.ApiIdentifier) ? "error" : "ok")">&lt;add key="Be2Bill.ApiIdentifier"    value="@configuration.ApiIdentifier" /&gt;</span>
+    <span class="@(string.IsNullOrEmpty(configuration.ApiKey) ? "error" : "ok")">&lt;add key="Be2Bill.ApiKey"           value="@(new string(configuration.ApiKey.Select(c => '•').ToArray()))" /&gt;</span>
+    <span class="@(string.IsNullOrEmpty(configuration.PaymentSubmitUrl) ? "error" : "ok")">&lt;add key="Be2Bill.PaymentSubmitUrl" value="@configuration.PaymentSubmitUrl" /&gt;</span>
+    <span class="@(string.IsNullOrEmpty(configuration.RestUrl) ? "error" : "ok")">&lt;add key="Be2Bill.RestUrl"          value="@configuration.RestUrl" /&gt;</span>
+  &lt;/appSettings&gt;</pre>
+    <p>Don't worry, you are not forced to use a config file. Check the sources ;)</p>
+
+    <h2>Configure Be2Bill callback url</h2>
+    <p>Unfortunately, B2B does not allow developers to specify the return url in each transaction. The one and only return url is to be configured in their back-office.</p>
+    <ol>
+        <li>Connect to your <a href="https://extranet-test.be2bill.com/" target="_blank">"sandbox" backoffice</a></li>
+        <li>Find your account setting blah blah blah</li>
+        <li>In <strong>field name</strong>, specify: <pre>@this.Request.Compose()@Url.Action("Return", "Be2Bill")</pre></li>
+        <li>In <strong>field name</strong>, specify: <pre>@this.Request.Compose()@Url.Action("Return", "Be2Bill")</pre></li>
+        <li>Save</li>
+    </ol>
+</section>
+
+@if (this.ViewBag.IsConfigured){
+@Html.Action("PayForm", new { partial = true, })
+
+
+}

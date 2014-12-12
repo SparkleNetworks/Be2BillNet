@@ -1,0 +1,37 @@
+﻿@{
+    var siteName = "NET45.Be2BillNet.AspMvcDemo";
+
+}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @siteName</title>
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+    <header id="mainheader">
+        <hgroup>
+            <h1><a href="/">@siteName</a></h1>
+            <h2>Demo app for Be2BillNet</h2>
+        </hgroup>
+        <div class="info">
+            <p>LGPL v3.<br /><a href="https://github.com/SparkleNetworks/Be2BillNet">https://github.com/SparkleNetworks/Be2BillNet</a><br />-</p>
+        </div>
+    </header>
+    <nav id="rootnav">
+        <div><ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+        </ul></div>
+    </nav>
+    </div>
+
+    <div id="main">
+@RenderBody()
+        <div class="clear"></div>
+    </div>
+
+</body>
+</html>

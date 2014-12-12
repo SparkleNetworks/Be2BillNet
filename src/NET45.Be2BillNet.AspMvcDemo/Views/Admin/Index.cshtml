@@ -1,0 +1,28 @@
+﻿@model IList<Be2BillNet.AspMvcDemo.Domain.Transaction1>
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="content">
+<h2>All transactions</h2>
+
+<table class="nice">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.OrderId</th>
+            <td>@item.DateCreatedUtc</td>
+            <td>@item.Amount</td>
+        </tr>
+    }
+    </tbody>
+</table>
+</section>

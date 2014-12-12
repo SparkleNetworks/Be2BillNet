@@ -1,0 +1,20 @@
+﻿@model Be2BillNet.AspMvcDemo.Domain.Transaction1
+@{
+    ViewBag.Title = "PayForm";
+    
+    var configuration = (Be2BillNet.Be2BillConfiguration)this.ViewBag.Configuration;
+    var data = (IDictionary<string, string>)this.ViewBag.Data;
+}
+
+<section class="content">
+    <h2>Make a payment with a form</h2>
+    <form action="@configuration.PaymentSubmitUrl" method="post">
+        @foreach (var item in data)
+        {
+        <input type="hidden" name="@item.Key" value="@item.Value" />
+        }
+        <p><input type="submit" value="Pay @Model.Amount.ToString("F2") €" /></p>
+    </form>
+</section>
+
+

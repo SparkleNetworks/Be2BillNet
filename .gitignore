@@ -181,3 +181,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+src/NET45.Be2BillNet.AspMvcDemo/App_Data/data.json
