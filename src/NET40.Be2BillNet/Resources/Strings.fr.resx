@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Config_ApiIdentifier_Description" xml:space="preserve">
+    <value>Correspond au paramètre IDENTIFIER.</value>
+  </data>
+  <data name="Config_ApiIdentifier_Name" xml:space="preserve">
+    <value>Identifiant du compte</value>
+  </data>
+  <data name="Config_ApiKey_Description" xml:space="preserve">
+    <value>Permet de signer les requètes.</value>
+  </data>
+  <data name="Config_ApiKey_Name" xml:space="preserve">
+    <value>Mot de passe personnel</value>
+  </data>
+  <data name="Config_PaymentSubmitUrl_Description" xml:space="preserve">
+    <value>L'adresse à laquelle soumettre les formulaires de paiment. Quelque chose comme https://xxxxxxxx.be2bill.com/front/form/process.php</value>
+  </data>
+  <data name="Config_PaymentSubmitUrl_Name" xml:space="preserve">
+    <value>URL des formulaires de paiement</value>
+  </data>
+  <data name="Config_PaymentSubmitUrl_Regex1" xml:space="preserve">
+    <value>Doit commencer par "https://"</value>
+  </data>
+  <data name="Config_RestUrl_Description" xml:space="preserve">
+    <value>L'adresse à laquelle soumettre les requêtes server-à-serveur. Quelque chose comme https://xxxxxxxx.be2bill.com/front/service/rest/process</value>
+  </data>
+  <data name="Config_RestUrl_Name" xml:space="preserve">
+    <value>URL des requètes REST</value>
+  </data>
+  <data name="Config_RestUrl_Regex1" xml:space="preserve">
+    <value>Doit commencer par "https://"</value>
+  </data>
+  <data name="ExecCode_0000_Name" xml:space="preserve">
+    <value>Opération réussie</value>
+  </data>
+  <data name="ExecCode_0001_Name" xml:space="preserve">
+    <value>Identification 3DSecure requise</value>
+  </data>
+  <data name="ExecCode_0002_Name" xml:space="preserve">
+    <value>Redirection vers un moyen de paiement alternatif requis</value>
+  </data>
+  <data name="ExecCode_1001_Name" xml:space="preserve">
+    <value>Paramètre manquant</value>
+  </data>
+  <data name="ExecCode_1002_Name" xml:space="preserve">
+    <value>Paramètre invalide</value>
+  </data>
+  <data name="ExecCode_1003_Name" xml:space="preserve">
+    <value>Erreur HASH</value>
+  </data>
+  <data name="ExecCode_1004_Name" xml:space="preserve">
+    <value>Protocole non supporté</value>
+  </data>
+  <data name="ExecCode_1005_Name" xml:space="preserve">
+    <value>Erreur REST</value>
+  </data>
+  <data name="ExecCode_2001_Name" xml:space="preserve">
+    <value>Alias non trouvé</value>
+  </data>
+  <data name="ExecCode_2002_Name" xml:space="preserve">
+    <value>Transaction de référence non trouvée</value>
+  </data>
+  <data name="ExecCode_2003_Name" xml:space="preserve">
+    <value>Transaction de référence non aboutie</value>
+  </data>
+  <data name="ExecCode_2004_Name" xml:space="preserve">
+    <value>Transaction de référence non remboursable</value>
+  </data>
+  <data name="ExecCode_2005_Name" xml:space="preserve">
+    <value>Autorisation de référence non capturable</value>
+  </data>
+  <data name="ExecCode_2006_Name" xml:space="preserve">
+    <value>Transaction de référence non terminée</value>
+  </data>
+  <data name="ExecCode_2007_Name" xml:space="preserve">
+    <value>Montant de capture invalide</value>
+  </data>
+  <data name="ExecCode_2008_Name" xml:space="preserve">
+    <value>Montant de remboursement invalide</value>
+  </data>
+  <data name="ExecCode_2009_Name" xml:space="preserve">
+    <value>Autorisation expirée</value>
+  </data>
+  <data name="ExecCode_2010_Name" xml:space="preserve">
+    <value>échéancier non trouvé</value>
+  </data>
+  <data name="ExecCode_2011_Name" xml:space="preserve">
+    <value>échéancier déjà interrompu</value>
+  </data>
+  <data name="ExecCode_2012_Name" xml:space="preserve">
+    <value>échéancier déjà terminé</value>
+  </data>
+  <data name="ExecCode_3001_Name" xml:space="preserve">
+    <value>Compte désactivé</value>
+  </data>
+  <data name="ExecCode_3002_Name" xml:space="preserve">
+    <value>Adresse IP serveur non autorisée</value>
+  </data>
+  <data name="ExecCode_3003_Name" xml:space="preserve">
+    <value>Transaction non permise</value>
+  </data>
+  <data name="ExecCode_4001_Name" xml:space="preserve">
+    <value>Transaction refusée par le réseau bancaire</value>
+  </data>
+  <data name="ExecCode_4002_Name" xml:space="preserve">
+    <value>Fonds insuffisants</value>
+  </data>
+  <data name="ExecCode_4003_Name" xml:space="preserve">
+    <value>Carte refusée par le réseau bancaire</value>
+  </data>
+  <data name="ExecCode_4004_Name" xml:space="preserve">
+    <value>Transaction abandonnée</value>
+  </data>
+  <data name="ExecCode_4005_Name" xml:space="preserve">
+    <value>Suspicion de fraude</value>
+  </data>
+  <data name="ExecCode_4006_Name" xml:space="preserve">
+    <value>Carte perdue</value>
+  </data>
+  <data name="ExecCode_4007_Name" xml:space="preserve">
+    <value>Carte volée</value>
+  </data>
+  <data name="ExecCode_4008_Name" xml:space="preserve">
+    <value>Authentification 3DSecure échouée</value>
+  </data>
+  <data name="ExecCode_4009_Name" xml:space="preserve">
+    <value>Authentification 3DSecure expirée</value>
+  </data>
+  <data name="ExecCode_4010_Name" xml:space="preserve">
+    <value>Transaction invalide</value>
+  </data>
+  <data name="ExecCode_4011_Name" xml:space="preserve">
+    <value>Transaction doublon</value>
+  </data>
+  <data name="ExecCode_4012_Name" xml:space="preserve">
+    <value>Données de carte invalides</value>
+  </data>
+  <data name="ExecCode_4013_Name" xml:space="preserve">
+    <value>Transaction non autorisée par le réseau bancaire pour ce porteur</value>
+  </data>
+  <data name="ExecCode_5001_Name" xml:space="preserve">
+    <value>Erreur protocole d'échange</value>
+  </data>
+  <data name="ExecCode_5002_Name" xml:space="preserve">
+    <value>Erreur réseau bancaire</value>
+  </data>
+  <data name="ExecCode_5004_Name" xml:space="preserve">
+    <value>Délai dépassé, la réponse arrivera par URL de notification</value>
+  </data>
+  <data name="ExecCode_5005_Name" xml:space="preserve">
+    <value>Erreur d'affichage du module 3D Secure</value>
+  </data>
+  <data name="ExecCode_6001_Name" xml:space="preserve">
+    <value>Transaction refusée par le marchand</value>
+  </data>
+  <data name="ExecCode_6002_Name" xml:space="preserve">
+    <value>Transaction refusée</value>
+  </data>
+  <data name="ExecCode_6003_Name" xml:space="preserve">
+    <value>Le porteur a déjà contesté une transaction</value>
+  </data>
+  <data name="ExecCode_6004_Name" xml:space="preserve">
+    <value>Transaction refusée par les règles du marchand</value>
+  </data>
+</root>
