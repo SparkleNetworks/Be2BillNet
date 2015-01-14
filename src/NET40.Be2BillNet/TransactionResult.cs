@@ -15,71 +15,161 @@ namespace Be2BillNet
     [DataContract(Namespace = Names.DataContractNamespace)]
     public class TransactionResult
     {
+        private readonly Dictionary<string, object> data = new Dictionary<string, object>();
+
         [DataMember(Name = "IDENTIFIER")]
-        public string Identifier { get; set; }
+        public string Identifier
+        {
+            get { return this.GetValue<string>("IDENTIFIER"); }
+            set { this.SetValue("IDENTIFIER", value); }
+        }
 
         [DataMember(Name = "OPERATIONTYPE")]
-        public string OperationType { get; set; }
+        public string OperationType
+        {
+            get { return this.GetValue<string>("OPERATIONTYPE"); }
+            set { this.SetValue("OPERATIONTYPE", value); }
+        }
 
         [DataMember(Name = "TRANSACTIONID")]
-        public string TransactionId { get; set; }
+        public string TransactionId
+        {
+            get { return this.GetValue<string>("TRANSACTIONID"); }
+            set { this.SetValue("TRANSACTIONID", value); }
+        }
 
         [DataMember(Name = "CLIENTIDENT")]
-        public string ClientIdent { get; set; }
+        public string ClientIdent
+        {
+            get { return this.GetValue<string>("CLIENTIDENT"); }
+            set { this.SetValue("CLIENTIDENT", value); }
+        }
 
         [DataMember(Name = "CLIENTEMAIL")]
-        public string ClientEmail { get; set; }
+        public string ClientEmail
+        {
+            get { return this.GetValue<string>("CLIENTEMAIL"); }
+            set { this.SetValue("CLIENTEMAIL", value); }
+        }
 
         [DataMember(Name = "ORDERID")]
-        public string OrderId { get; set; }
+        public string OrderId
+        {
+            get { return this.GetValue<string>("ORDERID"); }
+            set { this.SetValue("ORDERID", value); }
+        }
 
         [DataMember(Name = "VERSION")]
-        public string Version { get; set; }
+        public string Version
+        {
+            get { return this.GetValue<string>("VERSION"); }
+            set { this.SetValue("VERSION", value); }
+        }
 
         [DataMember(Name = "LANGUAGE")]
-        public string Language { get; set; }
+        public string Language
+        {
+            get { return this.GetValue<string>("LANGUAGE"); }
+            set { this.SetValue("LANGUAGE", value); }
+        }
 
         [DataMember(Name = "CURRENCY")]
-        public string Currency { get; set; }
+        public string Currency
+        {
+            get { return this.GetValue<string>("CURRENCY"); }
+            set { this.SetValue("CURRENCY", value); }
+        }
 
         [DataMember(Name = "EXTRADATA")]
-        public string ExtraData { get; set; }
+        public string ExtraData
+        {
+            get { return this.GetValue<string>("EXTRADATA"); }
+            set { this.SetValue("EXTRADATA", value); }
+        }
 
         [DataMember(Name = "CARDCODE")]
-        public string CardCode { get; set; }
+        public string CardCode
+        {
+            get { return this.GetValue<string>("CARDCODE"); }
+            set { this.SetValue("CARDCODE", value); }
+        }
 
         [DataMember(Name = "CARDCOUNTRY")]
-        public string CardCountry { get; set; }
+        public string CardCountry
+        {
+            get { return this.GetValue<string>("CARDCOUNTRY"); }
+            set { this.SetValue("CARDCOUNTRY", value); }
+        }
 
         [DataMember(Name = "CARDVALIDITYDATE")]
-        public string CardValidityDate { get; set; }
+        public string CardValidityDate
+        {
+            get { return this.GetValue<string>("CARDVALIDITYDATE"); }
+            set { this.SetValue("CARDVALIDITYDATE", value); }
+        }
 
         [DataMember(Name = "CARDFULLNAME")]
-        public string CardFullName { get; set; }
+        public string CardFullName
+        {
+            get { return this.GetValue<string>("CARDFULLNAME"); }
+            set { this.SetValue("CARDFULLNAME", value); }
+        }
 
         [DataMember(Name = "CARDTYPE")]
-        public string CardType { get; set; }
+        public string CardType
+        {
+            get { return this.GetValue<string>("CARDTYPE"); }
+            set { this.SetValue("CARDTYPE", value); }
+        }
 
         [DataMember(Name = "EXECCODE")]
-        public string ExecCode { get; set; }
+        public string ExecCode
+        {
+            get { return this.GetValue<string>("EXECCODE"); }
+            set { this.SetValue("EXECCODE", value); }
+        }
 
         [DataMember(Name = "MESSAGE")]
-        public string Message { get; set; }
+        public string Message
+        {
+            get { return this.GetValue<string>("MESSAGE"); }
+            set { this.SetValue("MESSAGE", value); }
+        }
 
         [DataMember(Name = "DESCRIPTOR")]
-        public string Descriptor { get; set; }
+        public string Descriptor
+        {
+            get { return this.GetValue<string>("DESCRIPTOR"); }
+            set { this.SetValue("DESCRIPTOR", value); }
+        }
 
         [DataMember(Name = "ALIAS")]
-        public string Alias { get; set; }
+        public string Alias
+        {
+            get { return this.GetValue<string>("ALIAS"); }
+            set { this.SetValue("ALIAS", value); }
+        }
 
         [DataMember(Name = "AMOUNT")]
-        public decimal? AmountCents { get; set; }
+        public decimal? AmountCents
+        {
+            get { return this.GetValue<decimal?>("AMOUNT"); }
+            set { this.SetValue("AMOUNT", value); }
+        }
 
         [DataMember(Name = "HASH")]
-        public string Hash { get; set; }
+        public string Hash
+        {
+            get { return this.GetValue<string>("HASH"); }
+            set { this.SetValue("HASH", value); }
+        }
 
         [DataMember(Name = "3DSECURE")]
-        public string Is3DSecure { get; set; }
+        public string Is3DSecure
+        {
+            get { return this.GetValue<string>("3DSECURE"); }
+            set { this.SetValue("3DSECURE", value); }
+        }
 
         public static TransactionResult Create(NameValueCollection collection)
         {
@@ -95,7 +185,7 @@ namespace Be2BillNet
 
         public override string ToString()
         {
-            return this.ExecCode + " T" + this.TransactionId + " O" + this.OrderId;
+            return (this.ExecCode ?? "####") + " T=" + this.TransactionId + " O=" + this.OrderId;
         }
 
         public void UpdateFrom(TransactionResult item)
@@ -174,6 +264,25 @@ namespace Be2BillNet
                 if (decimal.TryParse(getter("AMOUNT"), out value))
                     item.AmountCents = value;
             }
+        }
+
+        private void SetValue<T>(string key, T value)
+        {
+            this.data[key] = value;
+        }
+
+        private T GetValue<T>(string key)
+        {
+            if (this.data.ContainsKey(key))
+                return (T)this.data[key];
+            return default(T);
+        }
+
+        public IDictionary<string, string> ToDictionary()
+        {
+            return this.data
+                .Where(x => x.Value != null)
+                .ToDictionary(x => x.Key, x => x.Value != null ? x.Value.ToString() : null);
         }
     }
 }

@@ -354,7 +354,7 @@ namespace Be2BillNet
 
             string unhashed;
             var hash = this.GetHashForParameters(collection, configuration.ApiKey, out unhashed);
-            collection.Add("HASH", hash);
+            collection["HASH"] = hash;
         }
     }
 }

@@ -28,7 +28,7 @@
             <th>@item.OrderId</th>
             <td>@item.DateCreatedUtc</td>
             <td>@item.Amount</td>
-            <td>@item.AmountPaid</td>
+            <td class="@(item.AmountPaid == item.Amount ? "ok" : item.AmountPaid > item.Amount ? "warning" :  "error")">@item.AmountPaid</td>
             <td>@(item.PaymentIds != null ? item.PaymentIds.Count : 0)</td>
             <td>
                 @Html.ActionLink("Details", "Transaction1", new { id = item.OrderId, })
@@ -36,5 +36,15 @@
         </tr>
     }
     </tbody>
+    <tfoot>
+        <tr>
+            <th>@Model.Count</th>
+            <th></th>
+            <th>@Model.Sum(m => m.Amount)</th>
+            <th>@Model.Sum(m => m.AmountPaid)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>
 </section>

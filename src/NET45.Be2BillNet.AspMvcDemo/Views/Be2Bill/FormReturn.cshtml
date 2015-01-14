@@ -2,6 +2,7 @@
 @using Be2BillNet
 @{
     ViewBag.Title = "FormReturn";
+    var isHashValid = (bool)this.ViewBag.IsHashValid;
 }
 
 <section class="content">
@@ -9,6 +10,7 @@
 
     <h2>Operation status</h2>
     <p>@Model.ExecCode : @this.ViewBag.ExecCode</p>
+    <p class="@(isHashValid ? "ok" : "error")">Security HASH is @(isHashValid ? "valid." : "INVALID!")</p>
 
     <h2>Transaction status</h2>
 @{
@@ -16,7 +18,7 @@
 }
     @if (result == null)
     {
-    <p>No result.</p>
+    <p class="error">No result.</p>
     }
     else
     {
@@ -30,12 +32,12 @@
         }
         if (result.Succeed)
         {
-    <p>Payment accepted for transaction.</p>
+    <p class="ok">Payment accepted for transaction.</p>
         }
         else
         {
-    <p>Payment refused for transaction.</p>
-    <ul>
+    <p class="error">Payment refused for transaction.</p>
+    <ul class="error">
             @foreach (var item in result.Errors)
 	        {
 		 <li>@item.DisplayMessage</li>

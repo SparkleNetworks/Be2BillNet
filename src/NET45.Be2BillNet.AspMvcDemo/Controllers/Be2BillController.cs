@@ -65,7 +65,10 @@ namespace Be2BillNet.AspMvcDemo.Controllers
         {
             var data = TransactionResult.Create(this.Request.QueryString);
 
-            if (data.ExecCode == "0000")
+            bool isHashValid = this.BebillClient.VerifyParameters(data.ToDictionary(), this.BebillConfiguration.ApiKey, data.Hash);
+            this.ViewBag.IsHashValid = isHashValid;
+
+            if (data.ExecCode == "0000" && isHashValid)
             {
                 var splittedId = data.OrderId.Split(new char[] { '|', }, 2);
 

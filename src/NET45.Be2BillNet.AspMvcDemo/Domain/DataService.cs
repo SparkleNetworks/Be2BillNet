@@ -166,7 +166,7 @@ namespace Be2BillNet.AspMvcDemo.Domain
                 {
                     paymentIds.Add(data.OrderId);
 
-                    tran.AmountPaid += Math.Floor(data.AmountCents.Value / 100M);
+                    tran.AmountPaid += (data.AmountCents.Value / 100M);
                 }
 
                 if (tran.AmountPaid >= tran.Amount)

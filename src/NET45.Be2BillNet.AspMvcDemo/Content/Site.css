@@ -249,12 +249,15 @@ table.nice td.new {
 }
 table.nice td.warning {
   background: #ff8731;
+  color: #000;
 }
 table.nice td.error {
   background: #ff4242;
+  color: #000;
 }
 table.nice td.ok {
   background: #9cff73;
+  color: #000;
 }
 pre.dotconfig {
   background: #1E1E1E;
