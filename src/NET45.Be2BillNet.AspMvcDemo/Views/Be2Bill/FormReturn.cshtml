@@ -1,0 +1,51 @@
+﻿@model TransactionResult
+@using Be2BillNet
+@{
+    ViewBag.Title = "FormReturn";
+}
+
+<section class="content">
+    <h1>@ViewBag.Title</h1>
+
+    <h2>Operation status</h2>
+    <p>@Model.ExecCode : @this.ViewBag.ExecCode</p>
+
+    <h2>Transaction status</h2>
+@{
+    var result = (Be2BillNet.AspMvcDemo.Domain.BasicResult)this.ViewBag.Result;
+}
+    @if (result == null)
+    {
+    <p>No result.</p>
+    }
+    else
+    {
+        var tran = (Be2BillNet.AspMvcDemo.Domain.Transaction1)result.Data["Transaction"];
+        if (tran != null)
+        {
+    <p>
+        Transaction @tran.OrderId. To pay: @tran.Amount. Paid: @tran.AmountPaid. 
+        @Html.ActionLink("Details", "Transaction1", "Admin", new { id = tran.OrderId, }, null)
+    </p>
+        }
+        if (result.Succeed)
+        {
+    <p>Payment accepted for transaction.</p>
+        }
+        else
+        {
+    <p>Payment refused for transaction.</p>
+    <ul>
+            @foreach (var item in result.Errors)
+	        {
+		 <li>@item.DisplayMessage</li>
+	        }
+    </ul>
+        }
+    
+    }
+
+    <h2>Transaction details</h2>
+    @Html.DisplayForModel()
+
+</section>

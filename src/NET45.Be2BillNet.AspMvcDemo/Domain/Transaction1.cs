@@ -22,5 +22,14 @@ namespace Be2BillNet.AspMvcDemo.Domain
         public string Description { get; set; }
         [DataMember]
         public DateTime DateCreatedUtc { get; set; }
+
+        [DataMember]
+        public decimal AmountPaid { get; set; }
+
+        [DataMember]
+        public bool IsPaid { get; set; }
+
+        [DataMember]
+        public List<string> PaymentIds { get; set; }
     }
 }

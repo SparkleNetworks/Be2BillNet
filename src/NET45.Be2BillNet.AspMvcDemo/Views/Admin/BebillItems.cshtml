@@ -1,0 +1,69 @@
+﻿@model IList<TransactionResult>
+@using Be2BillNet
+@{
+    ViewBag.Title = "BebillItems";
+}
+<section class="content">
+<h2>BebillItems</h2>
+
+<table class="nice">
+    <thead>
+    <tr>
+        <th>Identifier</th>
+        <th>OrderId</th>
+        <th>OperationType</th>
+        <th>TransactionId</th>
+        <th>ClientIdent</th>
+        <th>ClientEmail</th>
+        <th>Version</th>
+        <th>Language</th>
+        <th>Currency</th>
+        <th>ExtraData</th>
+        <th>CardCode</th>
+        <th>CardCountry</th>
+        <th>CardValidityDate</th>
+        <th>CardFullName</th>
+        <th>CardType</th>
+        <th>ExecCode</th>
+        <th>Message</th>
+        <th>Descriptor</th>
+        <th>Alias</th>
+        <th>AmountCents</th>
+        <th>Is3DSecure</th>
+        <th></th>
+    </tr>
+        </thead><tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Identifier</td>
+        <td>@Html.ActionLink(item.OrderId, "BebillItem", new { id = item.OrderId, })</td>
+        <td>@item.OperationType</td>
+        <td>@item.TransactionId</td>
+        <td>@item.ClientIdent</td>
+        <td>@item.ClientEmail</td>
+        <td>@item.Version</td>
+        <td>@item.Language</td>
+        <td>@item.Currency</td>
+        <td>@item.ExtraData</td>
+        <td>@item.CardCode</td>
+        <td>@item.CardCountry</td>
+        <td>@item.CardValidityDate</td>
+        <td>@item.CardFullName</td>
+        <td>@item.CardType</td>
+        <td>@item.ExecCode</td>
+        <td>@item.Message</td>
+        <td>@item.Descriptor</td>
+        <td>@item.Alias</td>
+        <td>@item.AmountCents</td>
+        <td>@item.Is3DSecure)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+            </tbody>
+</table>
+</section>
+

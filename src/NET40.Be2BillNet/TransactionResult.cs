@@ -15,78 +15,6 @@ namespace Be2BillNet
     [DataContract(Namespace = Names.DataContractNamespace)]
     public class TransactionResult
     {
-        public static TransactionResult Create(NameValueCollection collection)
-        {
-            var response = new TransactionResult
-            {
-                Alias = collection["ALIAS"],
-                CardCode = collection["CARDCODE"],
-                CardCountry = collection["CARDCOUNTRY"],
-                CardFullName = collection["CARDFULLNAME"],
-                CardType = collection["CARDTYPE"],
-                CardValidityDate = collection["CARDVALIDITYDATE"],
-                ClientEmail = collection["CLIENTEMAIL"],
-                ClientIdent = collection["CLIENTIDENT"],
-                Currency = collection["CURRENCY"],
-                Descriptor = collection["DESCRIPTOR"],
-                ExecCode = collection["EXECCODE"],
-                ExtraData = collection["EXTRADATA"],
-                Hash = collection["HASH"],
-                Identifier = collection["IDENTIFIER"],
-                Is3DSecure = collection["3DSECURE"],
-                Language = collection["LANGUAGE"],
-                Message = collection["MESSAGE"],
-                OperationType = collection["OPERATIONTYPE"],
-                OrderId = collection["ORDERID"],
-                TransactionId = collection["TRANSACTIONID"],
-                Version = collection["VERSION"],
-            };
-
-            {
-                decimal value;
-                if (decimal.TryParse(collection["AMOUNT"], out value))
-                    response.AmountCents = value;
-            }
-
-            return response;
-        }
-
-        public static TransactionResult Create(Func<string, string> getter)
-        {
-            var response = new TransactionResult
-            {
-                Alias = getter("ALIAS"),
-                CardCode = getter("CARDCODE"),
-                CardCountry = getter("CARDCOUNTRY"),
-                CardFullName = getter("CARDFULLNAME"),
-                CardType = getter("CARDTYPE"),
-                CardValidityDate = getter("CARDVALIDITYDATE"),
-                ClientEmail = getter("CLIENTEMAIL"),
-                ClientIdent = getter("CLIENTIDENT"),
-                Currency = getter("CURRENCY"),
-                Descriptor = getter("DESCRIPTOR"),
-                ExecCode = getter("EXECCODE"),
-                ExtraData = getter("EXTRADATA"),
-                Hash = getter("HASH"),
-                Identifier = getter("IDENTIFIER"),
-                Is3DSecure = getter("3DSECURE"),
-                Language = getter("LANGUAGE"),
-                Message = getter("MESSAGE"),
-                OperationType = getter("OPERATIONTYPE"),
-                OrderId = getter("ORDERID"),
-                TransactionId = getter("TRANSACTIONID"),
-                Version = getter("VERSION"),
-            };
-
-            {
-                decimal value;
-                if (decimal.TryParse(getter("AMOUNT"), out value))
-                    response.AmountCents = value;
-            }
-
-            return response;
-        }
-
         [DataMember(Name = "IDENTIFIER")]
         public string Identifier { get; set; }
 
@@ -153,9 +81,99 @@ namespace Be2BillNet
         [DataMember(Name = "3DSECURE")]
         public string Is3DSecure { get; set; }
 
+        public static TransactionResult Create(NameValueCollection collection)
+        {
+            return Create(key => collection[key]);
+        }
+
+        public static TransactionResult Create(Func<string, string> getter)
+        {
+            var item = new TransactionResult();
+            Update(item, getter);
+            return item;
+        }
+
         public override string ToString()
         {
             return this.ExecCode + " T" + this.TransactionId + " O" + this.OrderId;
+        }
+
+        public void UpdateFrom(TransactionResult item)
+        {
+            if (item == null)
+                throw new ArgumentNullException("item");
+
+            if (this.OrderId != item.OrderId)
+                throw new ArgumentException("The OrderId must be the same for this operation", "item.OrderId");
+
+            Update(this, item);
+        }
+
+        private static void Update(TransactionResult item, TransactionResult update)
+        {
+            if (item == null)
+                throw new ArgumentNullException("item");
+            if (update == null)
+                throw new ArgumentNullException("update");
+
+            item.Alias = update.Alias;
+            item.AmountCents = update.AmountCents;
+            item.CardCode = update.CardCode;
+            item.CardCountry = update.CardCountry;
+            item.CardFullName = update.CardFullName;
+            item.CardType = update.CardType;
+            item.CardValidityDate = update.CardValidityDate;
+            item.ClientEmail = update.ClientEmail;
+            item.ClientIdent = update.ClientIdent;
+            item.Currency = update.Currency;
+            item.Descriptor = update.Descriptor;
+            item.ExecCode = update.ExecCode;
+            item.ExtraData = update.ExtraData;
+            item.Hash = update.Hash;
+            item.Identifier = update.Identifier;
+            item.Is3DSecure = update.Is3DSecure;
+            item.Language = update.Language;
+            item.Message = update.Message;
+            item.OperationType = update.OperationType;
+            item.OrderId = update.OrderId;
+            item.TransactionId = update.TransactionId;
+            item.Version = update.Version;
+        }
+
+        private static void Update(TransactionResult item, Func<string, string> getter)
+        {
+            if (item == null)
+                throw new ArgumentNullException("item");
+            if (getter == null)
+                throw new ArgumentNullException("getter");
+
+            item.Alias = getter("ALIAS");
+            item.CardCode = getter("CARDCODE");
+            item.CardCountry = getter("CARDCOUNTRY");
+            item.CardFullName = getter("CARDFULLNAME");
+            item.CardType = getter("CARDTYPE");
+            item.CardValidityDate = getter("CARDVALIDITYDATE");
+            item.ClientEmail = getter("CLIENTEMAIL");
+            item.ClientIdent = getter("CLIENTIDENT");
+            item.Currency = getter("CURRENCY");
+            item.Descriptor = getter("DESCRIPTOR");
+            item.ExecCode = getter("EXECCODE");
+            item.ExtraData = getter("EXTRADATA");
+            item.Hash = getter("HASH");
+            item.Identifier = getter("IDENTIFIER");
+            item.Is3DSecure = getter("3DSECURE");
+            item.Language = getter("LANGUAGE");
+            item.Message = getter("MESSAGE");
+            item.OperationType = getter("OPERATIONTYPE");
+            item.OrderId = getter("ORDERID");
+            item.TransactionId = getter("TRANSACTIONID");
+            item.Version = getter("VERSION");
+
+            {
+                decimal value;
+                if (decimal.TryParse(getter("AMOUNT"), out value))
+                    item.AmountCents = value;
+            }
         }
     }
 }

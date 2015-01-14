@@ -24,6 +24,7 @@
   ...
 <span class="element">&lt;/<span class="name">configuration</span>&gt;</span></pre>
     <p>Don't worry, you are not forced to use a config file. Check the sources ;)</p>
+    <p>The ApiIdentifier and ApiKey have been sent to you via email.</p>
 
     <h2>Configure Be2Bill callback url</h2>
     <p>Unfortunately, B2B does not allow developers to specify the return url in each transaction. The one and only return url is to be configured in their back-office.</p>
@@ -34,10 +35,19 @@
         <li>In <strong>field name</strong>, specify: <pre>@this.Request.Compose()@Url.Action("Return", "Be2Bill")</pre></li>
         <li>Save</li>
     </ol>
+
+
+@if (this.ViewBag.IsConfigured)
+{
+    <h2>Make payments</h2>
+    <p>
+        @Html.ActionLink("With form", "PayForm", "Pay")
+    </p>
+}
+
 </section>
 
-@if (this.ViewBag.IsConfigured){
-@Html.Action("PayForm", new { partial = true, })
-
-
+@if (this.ViewBag.IsConfigured)
+{
+@*@Html.Action("PayForm", new { partial = true, })*@
 }

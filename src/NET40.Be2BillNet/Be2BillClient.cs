@@ -104,10 +104,10 @@ namespace Be2BillNet
         /// <param name="amountInEuro">The amount information euro (not in cents).</param>
         /// <param name="createAlias">if set to <c>true</c> [create alias] (to do oneclick later).</param>
         /// <param name="displayCreateAlias">if set to <c>true</c> the payment form will ask whether to save the card information.</param>
-        /// <param name="authorizationInsteadOfPayment">if set to <c>true</c> [authorization instead of payment].</param>
+        /// <param name="authorizationInsteadOfPayment">if set to <c>true</c> [authorization instead of payment]. Call Capture to complete the transaction.</param>
         /// <param name="language">The language.</param>
         /// <returns></returns>
-        public IDictionary<string, string> CreateAuthorizationParameters(
+        public TransactionRequest CreateAuthorizationParameters(
             string uniqueOrderId,
             string userId,
             string userEmail,
@@ -120,7 +120,7 @@ namespace Be2BillNet
         {
             // http://developer.be2bill.com/platform
 
-            var collection = new Dictionary<string, string>();
+            var collection = new TransactionRequest();
 
             if (authorizationInsteadOfPayment)
             {
@@ -166,7 +166,7 @@ namespace Be2BillNet
         /// <param name="hideClientEmail">if set to <c>true</c> [hide client email].</param>
         /// <exception cref="System.ArgumentNullException">collection</exception>
         public void SetPayWithForm(
-            IDictionary<string, string> collection,
+            TransactionRequest collection,
             bool allow3dSecure = true,
             bool hideClientEmail = false)
         {
@@ -192,7 +192,7 @@ namespace Be2BillNet
         /// or
         /// The value cannot be empty;userAgent
         /// </exception>
-        public void SetPayWithAlias(IDictionary<string, string> collection, string alias, string userAddress, string userAgent)
+        public void SetPayWithAlias(TransactionRequest collection, string alias, string userAddress, string userAgent)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
@@ -231,7 +231,7 @@ namespace Be2BillNet
         /// collection
         /// </exception>
         /// <exception cref="Be2BillApiException"></exception>
-        public TransactionResult PayWithAlias(IDictionary<string, string> collection)
+        public TransactionResult PayWithAlias(TransactionRequest collection)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
@@ -347,7 +347,7 @@ namespace Be2BillNet
         /// </summary>
         /// <param name="collection">The collection.</param>
         /// <exception cref="System.ArgumentNullException">collection</exception>
-        public void SetHash(IDictionary<string, string> collection)
+        public void SetHash(TransactionRequest collection)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");

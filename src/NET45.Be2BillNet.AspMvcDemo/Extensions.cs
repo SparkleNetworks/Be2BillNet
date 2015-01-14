@@ -3,6 +3,7 @@ namespace Be2BillNet.AspMvcDemo
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Linq;
     using System.Web;
     using Be2BillNet.AspMvcDemo.Domain;
@@ -55,6 +56,39 @@ namespace Be2BillNet.AspMvcDemo
             }
 
             return url;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="IDictionary&lt;string, string&gt;"/> containing the values from the current <see cref="NameValueCollection"/>.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <returns></returns>
+        public static IDictionary<string, string> ToDictionary(this NameValueCollection collection)
+        {
+            var list = new Dictionary<string, string>();
+            foreach (var item in collection.AllKeys)
+            {
+                list.Add(item, collection[item]);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Trims a string to the specified length.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="length">The length.</param>
+        /// <returns></returns>
+        public static string TrimToLength(this string value, int length)
+        {
+            if (value == null)
+                return null;
+
+            if (value.Length <= length)
+                return value;
+
+            return value.Substring(0, length);
         }
     }
 }

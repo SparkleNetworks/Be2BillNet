@@ -10,11 +10,25 @@ namespace Be2BillNet.AspMvcDemo.Domain
     {
         private bool isDisposed;
         private Action<TData> disposeAction;
+        private Action<TData> saveAction;
 
-        public DataTransaction(TData data, Action<TData> disposeAction)
+        public DataTransaction(TData data, Action<TData> saveAction, Action<TData> disposeAction)
         {
             this.Data = data;
             this.disposeAction = disposeAction;
+            this.saveAction = saveAction;
+        }
+
+        public TData Data { get; set; }
+
+        public void Save()
+        {
+            var action = this.saveAction;
+            this.saveAction = null;
+            if (action != null)
+            {
+                action(this.Data);
+            }
         }
         
         public void Dispose()
@@ -36,7 +50,5 @@ namespace Be2BillNet.AspMvcDemo.Domain
                 this.isDisposed = true;
             }
         }
-
-        public TData Data { get; set; }
     }
 }

@@ -27,6 +27,9 @@ namespace Be2BillNet.AspMvcDemo.Controllers
 
         public Be2BillClient BebillClient { get; set; }
 
+        /// <summary>
+        /// Gets the business layer entry point.
+        /// </summary>
         public DataService Domain
         {
             get { return this.HttpContext.GetDomain(); }

@@ -1,0 +1,69 @@
+﻿@model Be2BillNet.TransactionResult
+
+<dl class="srkdl">
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Identifier)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Identifier)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.OperationType)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.OperationType)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.TransactionId)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.TransactionId)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.ClientIdent)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.ClientIdent)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.ClientEmail)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.ClientEmail)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.OrderId)</dt>
+    <dd class="display-field">@Html.ActionLink(Model.OrderId, "BebillItem", "Admin", new { id = Model.OrderId, }, null)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Version)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Version)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Language)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Language)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Currency)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Currency)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.ExtraData)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.ExtraData)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.CardCode)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.CardCode)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.CardCountry)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.CardCountry)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.CardValidityDate)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.CardValidityDate)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.CardFullName)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.CardFullName)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.CardType)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.CardType)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.ExecCode)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.ExecCode)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Message)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Message)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Descriptor)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Descriptor)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Alias)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Alias)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.AmountCents)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.AmountCents)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Hash)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Hash)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Is3DSecure)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Is3DSecure)</dd>
+</dl>

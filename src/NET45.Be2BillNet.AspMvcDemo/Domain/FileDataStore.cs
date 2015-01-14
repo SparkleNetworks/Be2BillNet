@@ -33,6 +33,10 @@ namespace Be2BillNet.AspMvcDemo.Domain
 
                         stream.Flush();
                         stream.Dispose();
+                    },
+                    changedData =>
+                    {
+                        stream.Dispose();
                     });
                 return transaction;
             }

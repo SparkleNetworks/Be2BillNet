@@ -1,0 +1,50 @@
+﻿@model Be2BillNet.AspMvcDemo.Domain.Transaction1
+
+@{
+    ViewBag.Title = "Transaction1";
+}
+<section class="content">
+<h2>Transaction1</h2>
+
+<dl class="srkdl">
+    <dt class="display-label">@Html.DisplayNameFor(model => model.OrderId)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.OrderId)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.UserId)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.UserId)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.UserEmail)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.UserEmail)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Amount)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Amount)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.Description)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.Description)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.DateCreatedUtc)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.DateCreatedUtc)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.AmountPaid)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.AmountPaid)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.IsPaid)</dt>
+    <dd class="display-field">@Html.DisplayFor(model => model.IsPaid)</dd>
+
+    <dt class="display-label">@Html.DisplayNameFor(model => model.PaymentIds)</dt>
+    <dd class="display-field">
+@if (Model.PaymentIds != null)
+{
+    foreach (var item in Model.PaymentIds)
+    {
+        @Html.ActionLink(item, "BebillItem", new { id = item, })<br />
+    }
+}
+    </dd>
+</dl>
+
+<p class="clear">
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</section>

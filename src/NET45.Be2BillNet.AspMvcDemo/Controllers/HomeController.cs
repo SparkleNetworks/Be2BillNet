@@ -22,29 +22,5 @@ namespace Be2BillNet.AspMvcDemo.Controllers
 
             return this.View();
         }
-
-        public ActionResult PayForm(bool partial = false)
-        {
-            // data you should gather
-            var transaction = this.Domain.CreateRandomTransaction();
-
-            // now build a form collection
-            var data = this.BebillClient.CreateAuthorizationParameters(
-                transaction.OrderId,
-                transaction.UserId,
-                transaction.UserEmail,
-                transaction.Description,
-                transaction.Amount,
-                createAlias: true);
-            this.BebillClient.SetPayWithForm(data, false, false);
-
-            this.ViewBag.Configuration = this.BebillConfiguration;
-            this.ViewBag.Data = data;
-
-            if (partial)
-                return this.PartialView(transaction);
-            else
-                return this.View(transaction);
-        }
     }
 }
