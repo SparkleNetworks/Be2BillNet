@@ -1,4 +1,4 @@
-﻿Be2BillNet
+Be2BillNet
 ==========
 
 [Be2Bill](https://www.be2bill.com/) is a french online payment provider. 
@@ -8,7 +8,7 @@ This non-official library will allow you to execute B2B payments with .NET langu
 Get it
 ------
 
-[Via NuGet](https://www.nuget.org/packages/Be2BillNet) (not ready yet)
+[Via NuGet](https://www.nuget.org/packages/Be2BillNet)
 
 ````powershell
 PM> Install-Package Be2BillNet
@@ -55,8 +55,9 @@ Demo app
 References
 ----------
 
-http://developer.be2bill.com/home
-http://developer.be2bill.com/platform
-http://developer.be2bill.com/checklist
-http://developer.be2bill.com/annexes/execcodes
-http://developer.be2bill.com/annexes/parameters
+http://developer.be2bill.com/home  
+http://developer.be2bill.com/platform  
+http://developer.be2bill.com/checklist  
+http://developer.be2bill.com/annexes/execcodes  
+http://developer.be2bill.com/annexes/parameters  
+https://github.com/be2bill
