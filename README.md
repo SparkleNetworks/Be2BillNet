@@ -1,6 +1,8 @@
 Be2BillNet
 ==========
 
+[![Join the chat at https://gitter.im/SparkleNetworks/Be2BillNet](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SparkleNetworks/Be2BillNet?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [Be2Bill](https://www.be2bill.com/) is a french online payment provider. 
 
 This non-official library will allow you to execute B2B payments with .NET languages (C#, VB.NET...)
